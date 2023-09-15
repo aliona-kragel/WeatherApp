@@ -3,10 +3,6 @@ import { StyleSheet } from 'react-native';
 export const gStyle = StyleSheet.create({
   main: {
     flex: 1,
-    backgroundColor: 'linear-gradient(189deg, rgba(52,166,240,1) 0%, rgba(97,151,176,1) 35%, rgba(185,210,215,1) 100%)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 30
   },
   text: {
     color: 'white',
@@ -16,6 +12,25 @@ export const gStyle = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    blur: true,
+    backgroundColor: 'white',
   },
+  weatherBlock: {
+    flex: 1,
+    paddingHorizontal: 30,
+    paddingTop: 60,
+    paddingBottom: 30,
+  },
+  currentWeather: {
+    padding: 10,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  location: {
+    flexDirection: 'row',
+    gap: 5,
+    alignItems: 'center',
+  }
 }); 

@@ -7,7 +7,6 @@ export default function App() {
     <Provider store={store}>
       <HomeScreen />
     </Provider>
-
   );
 }
 
