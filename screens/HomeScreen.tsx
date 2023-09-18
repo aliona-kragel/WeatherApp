@@ -3,16 +3,17 @@ import { gStyle } from '../styles/styles'
 import Loading from "../components/Loading";
 import * as Location from 'expo-location';
 import { GeopositionTypes } from "../store/slices/geoposition/geopositionTypes";
-import CurrentWeather from "../components/CurrentWeather";
 import { useEffect, useState } from "react";
 import useWeatherActions from "../hooks/useWeatherActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import weatherService from "../services/weatherServices";
 import useGeopositionActions from "../hooks/useGeopositionActions";
+import WeatherForecast from "../components/WeatherForecast";
+
 
 const HomeScreen = () => {
   const [isLoading, setIsloading] = useState<boolean>(true);
-  const { setCurrentWeather } = useWeatherActions();
+  const { setCurrentWeather, setFiveDayWeather } = useWeatherActions();
   const { setGeoposition } = useGeopositionActions();
   const { geoposition } = useTypedSelector(state => state.geoposition);
   const { currentWeather } = useTypedSelector(state => state.weather);
@@ -35,7 +36,7 @@ const HomeScreen = () => {
     setIsloading(true);
     if (geoposition) {
       const lat = geoposition?.coords.latitude;
-      const lon = geoposition?.coords.longitude
+      const lon = geoposition?.coords.longitude;
       weatherService.getCurrentWeather(lat, lon)
         .then(res => setCurrentWeather(res))
         .catch((err) => {
@@ -44,7 +45,16 @@ const HomeScreen = () => {
         })
         .finally(() => {
           setIsloading(false);
+        });
+      weatherService.getFiveDayWeather(lat, lon)
+        .then(res => setFiveDayWeather(res))
+        .catch((err) => {
+          console.log(err);
+          Alert.alert("Error", "Error fetching 5 day weather")
         })
+        .finally(() => {
+          setIsloading(false);
+        });
     }
   }
 
@@ -53,7 +63,7 @@ const HomeScreen = () => {
   return (
     <View
       style={gStyle.main}>
-      {isLoading ? <Loading /> : <CurrentWeather condition={currentWeather?.weather[0].main} />}
+      {isLoading ? <Loading /> : <WeatherForecast condition={currentWeather?.weather[0].main} />}
     </View>
   )
 }
