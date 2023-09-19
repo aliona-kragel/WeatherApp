@@ -1,5 +1,5 @@
 export interface IWeather {
-  currentWeather: CurrentWeatherTypes | null,
+  currentWeather: CurrentWeatherTypes,
   fiveDayWeather: FiveDayWeatherTypes | null,
 }
 

@@ -17,26 +17,32 @@ export const gStyle = StyleSheet.create({
   degree: {
     color: 'white',
     fontSize: 120,
-    paddingVertical: 10,
   },
-  tempBlock: {
+  sunBlock: {
     flexDirection: 'row',
     gap: 30,
   },
-  tempInfo: {
+  sunBlockInfo: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  sunBlockText: {
     color: 'rgba(255, 255, 255, 0.5)',
-    fontSize: 24
-  }
-  ,
-  weatherDesc: {
+    fontSize: 24,
+  },
+  weatherCondition: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 20,
   },
+  weatherDesc: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 18,
+  },
   weatherBlock: {
     flex: 1,
     flexDirection: 'column',
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     paddingTop: 60,
     paddingBottom: 30,
     gap: 15,
@@ -74,7 +80,7 @@ export const gStyle = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 15,
+    paddingVertical: 12,
     borderBottomColor: 'rgba(255,255,255,0.3)',
     borderBottomWidth: 1,
   },
@@ -84,5 +90,13 @@ export const gStyle = StyleSheet.create({
   },
   dailyWeatherDate: {
     color: 'rgba(255,255,255,0.5)'
+  },
+  searchControl: {
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    padding: 7,
+    borderRadius: 12,
+    color: 'white',
+    fontSize: 18,
+    textAlign: 'center',
   }
 }); 

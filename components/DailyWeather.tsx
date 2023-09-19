@@ -20,7 +20,7 @@ const DailyWeather: FC<PropsWithChildren<DailyWeatherPropsTypes>> = ({ date, tem
       <Text style={gStyle.dailyWeatherInfo}>
         {dayName}
       </Text>
-      <MaterialCommunityIcons name={weatherOptions[weatherCondition].iconName} size={32} color="white" />
+      <MaterialCommunityIcons name={weatherOptions[weatherCondition].iconName} size={32} color={weatherOptions[weatherCondition].color} />
       <Text style={gStyle.dailyWeatherInfo}>
         {tempMin.toFixed(0)}&deg;C
       </Text>
